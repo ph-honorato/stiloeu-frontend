@@ -7,3 +7,6 @@ Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
 Execute `npm start` para iniciar. Uma página abrirá automaticamente no navegador com a aplicação rodando.
 
 
+## Pacotes Instalados
+
+ngx-bootstrap 8.0.0 (bootstrap v4.5.3)
