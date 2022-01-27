@@ -1,1 +1,50 @@
-<p>produtos works!</p>
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-3">
+            
+            <div class="container-fluid" style="height: 40px;background-color: black;">
+
+                <div class="row align-items-center" style="height: 100%;">
+
+                    <div class="col-6">
+                        <b style="color: white;">Filtros</b>
+                    </div>
+
+                    <div class="col-6 text-right">
+                        <b style="color: white;font-size: 13px;text-decoration: underline;cursor: pointer;">Aplicar</b>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <div class="col-9">
+
+            <div class="container-fluid" >
+
+                <div class="row" >
+
+                    <div class="col-4" style="height: 200px; background-color: gray;" *ngFor="let produto of produtosExibidos;">
+                        
+                        <b>{{produto.nome}}</b>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

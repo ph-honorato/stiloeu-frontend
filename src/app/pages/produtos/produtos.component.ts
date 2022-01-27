@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PreDatabase } from 'src/app/models/pre-database.model';
+import { Produto } from 'src/app/models/produto.model';
 
 @Component({
   selector: 'app-produtos',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutosComponent implements OnInit {
 
-  constructor() { }
+  produtosExibidos: Array<Produto>;
+  
+  constructor(
+    private pd: PreDatabase
+  ) { 
+
+    this.produtosExibidos = pd.preDatabase;
+
+  }
 
   ngOnInit(): void {
   }
+
+
+  
 
 }
