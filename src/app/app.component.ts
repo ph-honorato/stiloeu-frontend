@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Produto } from 'src/app/models/produto.model';
 
 // Icone
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
