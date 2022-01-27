@@ -9,4 +9,6 @@ Execute `npm start` para iniciar. Uma página abrirá automaticamente no navegad
 
 ## Pacotes Instalados
 
-ngx-bootstrap 8.0.0 (bootstrap v4.5.3)
+ngx-bootstrap v8.0.0 (bootstrap v4.5.3)
+
+fontawesome v0.10.1

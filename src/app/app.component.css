@@ -7,7 +7,28 @@
 
 .toolbar-inferior {
     background-color: whitesmoke;
-    height: 70px;
+    height: 60px;
+}
+
+
+.superior-icone {
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.superior-icone:hover {
+    color: rgb(235, 137, 255);
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+}
+
+.superior-legenda {
+    color: white;
+    margin: 0;
+    font-size: 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
 }
 
 
@@ -21,8 +42,9 @@
 }
 
 .opcao:hover {
-    color: rgb(12, 12, 12);
+    color: rgb(27, 27, 27);
     font-size: 17px;
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
 }
+

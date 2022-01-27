@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// Icone
+import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,27 +14,25 @@ export class AppComponent implements OnInit {
   /*
     Variáveis
   */
-  public count = 0;
+  faInstagram = faInstagram;
+  faWhatsapp = faWhatsapp;
 
 
   /*
     Construtor e OnInit
   */
-  constructor(
-    // private cs: CommonService
-  ){ }
+  constructor() { }
 
   ngOnInit() { }
 
 
-  
-  add(){
-
-    this.count = this.count + 1;
-
+  abrirWhatsapp(){
+    window.open("https://api.whatsapp.com/send?phone=5531992612527&text=Olá!%20Gostaria%20de%20algo%20stilo%20eu!%20=D", '_blank')
   }
 
-
+  abrirInstagram(){
+    window.open("https://www.instagram.com/stiloeucalcados/", '_blank')
+  }
 
 }
 
