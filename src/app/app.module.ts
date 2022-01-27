@@ -7,9 +7,17 @@ import { AppComponent } from './app.component';
 //Icones
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+//Paginas
+import { ProdutosComponent } from './pages/produtos/produtos.component';
+import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
+import { TutorialComponent } from './pages/tutorial/tutorial.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProdutosComponent,
+    QuemSomosComponent,
+    TutorialComponent
   ],
   imports: [
     BrowserModule,
