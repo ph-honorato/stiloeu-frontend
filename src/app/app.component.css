@@ -1,0 +1,28 @@
+
+
+.toolbar-superior {
+    background-color: black;
+    height: 100px;
+}
+
+.toolbar-inferior {
+    background-color: whitesmoke;
+    height: 70px;
+}
+
+
+.opcao {
+    color: black;
+    margin: 0;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    text-align: center;
+}
+
+.opcao:hover {
+    color: rgb(12, 12, 12);
+    font-size: 17px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+}
