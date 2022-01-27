@@ -9,8 +9,7 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: '/produtos',
-    pathMatch: 'full'
+    component: ProdutosComponent
   },
   {
     path: 'produtos',

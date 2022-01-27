@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+//Models
 import { Produto } from 'src/app/models/produto.model';
 
 // Icone
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+
+
 
 @Component({
   selector: 'app-root',
@@ -22,7 +27,7 @@ export class AppComponent implements OnInit {
   /*
     Construtor e OnInit
   */
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
 
@@ -33,6 +38,11 @@ export class AppComponent implements OnInit {
 
   abrirInstagram(){
     window.open("https://www.instagram.com/stiloeucalcados/", '_blank')
+  }
+
+
+  abrirPagina(url: string){
+    this.router.navigateByUrl(url)
   }
 
 }
