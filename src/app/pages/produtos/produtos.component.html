@@ -2,11 +2,19 @@
 
 <div class="container">
 
+    <div class="row mb-3">
+
+        <div class="col-12 text-center">
+            <h1>PRODUTOS</h1>
+        </div>
+        
+    </div>
+
     <div class="row">
 
         <div class="col-3">
             
-            <div class="container-fluid" style="height: 40px;background-color: black;">
+            <div class="container-fluid mt-1" style="height: 40px;background-color: black;">
 
                 <div class="row align-items-center" style="height: 100%;">
 
@@ -20,8 +28,6 @@
 
                 </div>
 
-
-
             </div>
 
 
@@ -33,9 +39,13 @@
 
                 <div class="row" >
 
-                    <div class="col-4" style="height: 200px; background-color: gray;" *ngFor="let produto of produtosExibidos;">
+                    <div class="col-4 m-1 py-2 px-4 card-fotos text-center" *ngFor="let produto of produtosExibidos;">
                         
-                        <b>{{produto.nome}}</b>
+                        <img class="foto mb-3" [src]="produto.foto" alt="foto"><br>
+
+                        <b>{{produto.nome}}</b><br>
+
+                        <b>R$ {{produto.preco}}</b><br>
 
                     </div>
 

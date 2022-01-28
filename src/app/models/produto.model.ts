@@ -7,6 +7,8 @@ export class Produto {
     
     descricao: string = "";         //Descricao do produto
 
+    foto: string = "";              //Foto do produto
+
     preco: number = 0;              //Preco do produto
 
     tamanhos: Array<number> = [];   //Tamanhos disponíveis do produto

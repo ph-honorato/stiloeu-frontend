@@ -11,16 +11,16 @@ export class ProdutosComponent implements OnInit {
 
   produtosExibidos: Array<Produto>;
   
-  constructor(
+  constructor (
     private pd: PreDatabase
+
   ) { 
 
     this.produtosExibidos = pd.preDatabase;
 
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 
   
