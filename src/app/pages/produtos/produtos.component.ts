@@ -23,6 +23,25 @@ export class ProdutosComponent implements OnInit {
   ngOnInit(): void { }
 
 
+  addTest(){
+
+    var p: Produto = {
+      id: 0, 
+      nome: "Sapatilha Azul",
+      descricao: "Sapatilha de Couro Preto",
+      foto: "../../assets/sapatilhapreta.jpeg",
+      preco: 74.99,
+      tamanhos: [35, 37, 38],
+      modelo: "sapatilha",
+      cor: "preto",
+      disponivel: true,
+      dataAdicao: "2022-01-27",
+      prontaEntrega: false
+    }
+
+    this.produtosExibidos.push(p);
+
+  }
   
 
 }

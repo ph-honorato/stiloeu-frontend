@@ -14,7 +14,7 @@
 
         <div class="col-3">
             
-            <div class="container-fluid mt-1" style="height: 40px;background-color: black;">
+            <div class="container-fluid" style="height: 40px;background-color: black;">
 
                 <div class="row align-items-center" style="height: 100%;">
 
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="col-6 text-right">
-                        <b style="color: white;font-size: 13px;text-decoration: underline;cursor: pointer;">Aplicar</b>
+                        <b style="color: white;font-size: 13px;text-decoration: underline;cursor: pointer;" (click)="addTest()">Aplicar</b>
                     </div>
 
                 </div>
@@ -39,7 +39,7 @@
 
                 <div class="row" >
 
-                    <div class="col-4 m-1 py-2 px-4 card-fotos text-center" *ngFor="let produto of produtosExibidos;">
+                    <div class="col-4 py-3 card-fotos text-center" *ngFor="let produto of produtosExibidos;">
                         
                         <img class="foto mb-3" [src]="produto.foto" alt="foto"><br>
 
