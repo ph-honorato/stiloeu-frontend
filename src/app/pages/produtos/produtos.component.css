@@ -22,3 +22,14 @@
     width: auto;
 
 }
+
+
+
+.filtro-superior {
+    height: 40px;
+    background-color: black;
+}
+
+.filtro-inferior {
+    background-color: rgb(243, 243, 243);
+}

@@ -15,8 +15,8 @@ export class PreDatabase {
             foto: "../../assets/sapatilhapreta.jpeg",
             preco: 74.99,
             tamanhos: [35, 37, 38],
-            modelo: "sapatilha",
-            cor: "preto",
+            modelo: "Sapatilhas",
+            cor: "Preto",
             disponivel: true,
             dataAdicao: "2022-01-27",
             prontaEntrega: false
@@ -28,8 +28,8 @@ export class PreDatabase {
             foto: "../../assets/sandaliarosa.jpeg",
             preco: 99.99,
             tamanhos: [35, 36, 37, 39, 40],
-            modelo: "sandália",
-            cor: "rosa",
+            modelo: "Sandálias",
+            cor: "Rosa",
             disponivel: true,
             dataAdicao: "2022-01-27",
             prontaEntrega: false

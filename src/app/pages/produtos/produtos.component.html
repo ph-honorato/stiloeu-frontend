@@ -14,7 +14,7 @@
 
         <div class="col-3">
             
-            <div class="container-fluid" style="height: 40px;background-color: black;">
+            <div class="container-fluid filtro-superior">
 
                 <div class="row align-items-center" style="height: 100%;">
 
@@ -30,6 +30,75 @@
 
             </div>
 
+            <div class="container-fluid filtro-inferior">
+
+                <form [formGroup]="filtrosForm" >
+            
+                    <div class="row py-2">
+
+                        <div class="col-12">
+
+                            <span>
+                                <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo"/> Lançamentos <br>
+                            </span>
+
+                            <span>
+                                <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" /> Promoções <br>
+                            </span>
+
+                            <span>
+                                <input type="radio" id="pronta-entrega" value="pronta-entrega" formControlName="tipo" /> Pronta Entrega <br> 
+                            </span>
+
+                            <span>
+                                <input type="radio" id="todos" value="todos" formControlName="tipo"  /> Todos Produtos <br>
+                            </span>
+                        
+                        </div>
+
+                    </div>
+
+                    <div class="row py-2">
+
+                        <div class="col-12">
+
+                            <span *ngFor="let modelo of arrayModelosFiltros">
+                                <input type="radio"  [value]="modelo" formControlName="modelo"/> {{modelo}} <br>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row py-2">
+
+                        <div class="col-12">
+
+                            <span *ngFor="let cor of arrayCoresFiltros">
+                                <input type="radio"  [value]="cor" formControlName="cor"/> {{cor}} <br>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row py-2">
+
+                        <div class="col-12">
+
+                            <span *ngFor="let numero of arrayNumerosFiltros">
+                                <input type="radio"  [value]="numero" formControlName="numero"/> {{numero}} <br>
+                            </span>
+
+                        </div>
+
+                    </div>
+                                      
+                </form>  
+
+            </div>
+
+            {{filtrosForm.value | json}}
 
         </div>
 
