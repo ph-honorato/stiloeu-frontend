@@ -9,7 +9,7 @@ export class PreDatabase {
     public preDatabase: Array<Produto> = [
 
         {
-            id: 0, 
+            id: 0,
             nome: "Sapatilha Preta",
             descricao: "Sapatilha de Couro Preto",
             foto: "../../assets/sapatilhapreta.jpeg",
@@ -18,11 +18,15 @@ export class PreDatabase {
             modelo: "Sapatilhas",
             cor: "Preto",
             disponivel: true,
-            dataAdicao: "2022-01-27",
-            prontaEntrega: false
+            prontaEntrega: false,
+            lancamento: true,
+            promocao: false,
+            precoPromocao: 0,
+            dataAdicao: "",
+            dataModificacao: ""
         },
         {
-            id: 1, 
+            id: 1,
             nome: "Sandália Rosa",
             descricao: "Sandália rosa com tecido e couro",
             foto: "../../assets/sandaliarosa.jpeg",
@@ -31,8 +35,12 @@ export class PreDatabase {
             modelo: "Sandálias",
             cor: "Rosa",
             disponivel: true,
-            dataAdicao: "2022-01-27",
-            prontaEntrega: false
+            prontaEntrega: true,
+            lancamento: false,
+            promocao: true,
+            precoPromocao: 89.99,
+            dataAdicao: "",
+            dataModificacao: ""
         },
     ];
 

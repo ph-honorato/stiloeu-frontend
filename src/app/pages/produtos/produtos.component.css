@@ -33,3 +33,14 @@
 .filtro-inferior {
     background-color: rgb(243, 243, 243);
 }
+
+
+
+.filtro-opcao {
+    cursor: pointer;
+    color: black;
+}
+
+.filtro-opcao:hover {
+    text-decoration: underline;
+}

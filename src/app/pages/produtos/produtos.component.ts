@@ -77,9 +77,82 @@ export class ProdutosComponent implements OnInit {
 
     // this.produtosExibidos.push(p);
 
-    console.log(this.filtrosForm.value);
+    // console.log(this.filtrosForm);
+
+    console.log(this.numero);
 
   }
   
+  aplicarFiltros(){
+
+    //Array Intermediário
+    var array: Array<Produto> = [];
+
+    if(this.tipo.value == "todos"){
+
+      for(var x=0; x < this.pd.preDatabase.length; x++){
+
+        if( this.pd.preDatabase[x].disponivel )
+          array.push( this.pd.preDatabase[x] );
+ 
+      }
+
+    } else if (this.tipo.value == "lancamentos") {
+
+      for(var x=0; x < this.pd.preDatabase.length; x++){
+
+        if( this.pd.preDatabase[x].disponivel && this.pd.preDatabase[x].lancamento )
+          array.push( this.pd.preDatabase[x] );
+ 
+      }
+
+    } else if (this.tipo.value == "promocoes") {
+
+      for(var x=0; x < this.pd.preDatabase.length; x++){
+
+        if( this.pd.preDatabase[x].disponivel &&  this.pd.preDatabase[x].promocao )
+          array.push( this.pd.preDatabase[x] );
+ 
+      }
+
+    } else if (this.tipo.value == "pronta-entrega") {
+
+      for(var x=0; x < this.pd.preDatabase.length; x++){
+
+        if( this.pd.preDatabase[x].disponivel &&  this.pd.preDatabase[x].prontaEntrega )
+          array.push( this.pd.preDatabase[x] );
+ 
+      }
+
+    }
+
+    
+    //Atualiza o array
+    this.produtosExibidos = array;
+
+
+  }
+
+
+  filtrarLancamentos(){
+    this.tipo.setValue("lancamentos");
+    this.aplicarFiltros();
+  }
+
+  filtrarPromocoes(){
+    this.tipo.setValue("promocoes");
+    this.aplicarFiltros();
+  }
+
+  filtrarProntaEntrega(){
+    this.tipo.setValue("pronta-entrega");
+    this.aplicarFiltros();
+  }
+
+  filtrarTodosProdutos(){
+    this.tipo.setValue("todos");
+    this.aplicarFiltros();
+  }
+
 
 }

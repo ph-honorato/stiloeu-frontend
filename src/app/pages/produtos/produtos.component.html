@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="col-6 text-right">
-                        <b style="color: white;font-size: 13px;text-decoration: underline;cursor: pointer;" (click)="addTest()">Aplicar</b>
+                        <b style="color: white;font-size: 13px;text-decoration: underline;cursor: pointer;" (click)="aplicarFiltros()">Aplicar</b>
                     </div>
 
                 </div>
@@ -39,19 +39,23 @@
                         <div class="col-12">
 
                             <span>
-                                <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo"/> Lançamentos <br>
+                                <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo"/>  
+                                <a class="filtro-opcao" (click)="filtrarLancamentos()">&nbsp;Lançamentos</a>  <br>
                             </span>
 
                             <span>
-                                <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" /> Promoções <br>
+                                <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" /> 
+                                <a class="filtro-opcao" (click)="filtrarPromocoes()">&nbsp;Promoções</a>  <br>
                             </span>
 
                             <span>
-                                <input type="radio" id="pronta-entrega" value="pronta-entrega" formControlName="tipo" /> Pronta Entrega <br> 
+                                <input type="radio" id="pronta-entrega" value="pronta-entrega" formControlName="tipo" />
+                                <a class="filtro-opcao" (click)="filtrarProntaEntrega()">&nbsp;Pronta Entrega</a>  <br> 
                             </span>
 
                             <span>
-                                <input type="radio" id="todos" value="todos" formControlName="tipo"  /> Todos Produtos <br>
+                                <input type="radio" id="todos" value="todos" formControlName="tipo"  /> 
+                                <a class="filtro-opcao" (click)="filtrarTodosProdutos()">&nbsp;Todos Produtos</a>  <br>
                             </span>
                         
                         </div>
@@ -63,7 +67,7 @@
                         <div class="col-12">
 
                             <span *ngFor="let modelo of arrayModelosFiltros">
-                                <input type="radio"  [value]="modelo" formControlName="modelo"/> {{modelo}} <br>
+                                <input type="radio"  [value]="modelo" formControlName="modelo"/> <a class="filtro-opcao">&nbsp;{{modelo}}</a>  <br>
                             </span>
 
                         </div>
@@ -87,7 +91,7 @@
                         <div class="col-12">
 
                             <span *ngFor="let numero of arrayNumerosFiltros">
-                                <input type="radio"  [value]="numero" formControlName="numero"/> {{numero}} <br>
+                                <input type="checkbox"  [value]="numero" formControlName="numero"/> {{numero}} <br>
                             </span>
 
                         </div>
