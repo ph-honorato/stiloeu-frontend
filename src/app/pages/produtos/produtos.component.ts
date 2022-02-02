@@ -34,7 +34,7 @@ export class ProdutosComponent implements OnInit {
   ) { 
 
     //Carrega o array de produtos com o banco de dados 
-    this.produtosExibidos = pd.preDatabase;
+    this.produtosExibidos = this.preencherArray();
 
     //Carregando array de filtros
     this.arrayModelosFiltros = ["Sapatilhas", "Sandálias"];
@@ -83,26 +83,49 @@ export class ProdutosComponent implements OnInit {
 
   }
   
+
+  preencherArray(){
+
+    var array: Array<Produto> = [];
+    
+    for (var x = 0; x < this.pd.preDatabase.length; x++){
+
+      if(this.pd.preDatabase[x].disponivel)
+        array.push(this.pd.preDatabase[x]);
+    
+    }
+
+    return array;
+  }
+
   aplicarFiltros(){
 
-    //Array Intermediário
-    var array: Array<Produto> = [];
+    //Define array de filtro e preenche
+    var arrayFiltro: Array<Produto> = [];
+    
+    for (var x = 0; x < this.pd.preDatabase.length; x++){
+      if(this.pd.preDatabase[x].disponivel)
+        arrayFiltro.push(this.pd.preDatabase[x]);
+    }
+    
 
-    if(this.tipo.value == "todos"){
 
-      for(var x=0; x < this.pd.preDatabase.length; x++){
+    //Filtro dos tipos
 
-        if( this.pd.preDatabase[x].disponivel )
-          array.push( this.pd.preDatabase[x] );
- 
-      }
+    if(this.tipo.value != "todos"){
 
-    } else if (this.tipo.value == "lancamentos") {
+      var array: Array<Produto> = [];
+      
+
+    }
+
+
+    if (this.tipo.value == "lancamentos") {
 
       for(var x=0; x < this.pd.preDatabase.length; x++){
 
         if( this.pd.preDatabase[x].disponivel && this.pd.preDatabase[x].lancamento )
-          array.push( this.pd.preDatabase[x] );
+          arrayFiltro.push( this.pd.preDatabase[x] );
  
       }
 
@@ -111,7 +134,7 @@ export class ProdutosComponent implements OnInit {
       for(var x=0; x < this.pd.preDatabase.length; x++){
 
         if( this.pd.preDatabase[x].disponivel &&  this.pd.preDatabase[x].promocao )
-          array.push( this.pd.preDatabase[x] );
+          arrayFiltro.push( this.pd.preDatabase[x] );
  
       }
 
@@ -120,7 +143,7 @@ export class ProdutosComponent implements OnInit {
       for(var x=0; x < this.pd.preDatabase.length; x++){
 
         if( this.pd.preDatabase[x].disponivel &&  this.pd.preDatabase[x].prontaEntrega )
-          array.push( this.pd.preDatabase[x] );
+          arrayFiltro.push( this.pd.preDatabase[x] );
  
       }
 
@@ -128,7 +151,7 @@ export class ProdutosComponent implements OnInit {
 
     
     //Atualiza o array
-    this.produtosExibidos = array;
+    this.produtosExibidos = arrayFiltro;
 
 
   }
