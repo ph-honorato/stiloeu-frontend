@@ -35,55 +35,51 @@
                 <form [formGroup]="filtrosForm" >
             
                     <div class="row py-2">
-
                         <div class="col-12">
 
                             <span>
-                                <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo"/>&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarLancamentos()" for="lancamentos">Lançamentos</a>  <br>
+                                <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo" />&nbsp;
+                                <a class="filtro-opcao" (click)="filtrarTipo('lancamentos')" for="lancamentos">Lançamentos</a>  <br>
                             </span>
 
                             <span>
                                 <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" />&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarPromocoes()">Promoções</a>  <br>
+                                <a class="filtro-opcao" (click)="filtrarTipo('promocoes')">Promoções</a>  <br>
                             </span>
 
                             <span>
                                 <input type="radio" id="pronta-entrega" value="pronta-entrega" formControlName="tipo" />&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarProntaEntrega()">Pronta Entrega</a>  <br> 
+                                <a class="filtro-opcao" (click)="filtrarTipo('pronta-entrega')">Pronta Entrega</a>  <br> 
                             </span>
 
                             <span>
-                                <input type="radio" id="todos" value="todos" formControlName="tipo"  />&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarTodosProdutos()">Todos Produtos</a>  <br>
+                                <input type="radio" id="todos" value="todos" formControlName="tipo" />&nbsp;
+                                <a class="filtro-opcao" (click)="filtrarTipo('todos')">Todos Produtos</a>  <br>
                             </span>
                         
                         </div>
-
                     </div>
 
                     <div class="row py-2">
-
                         <div class="col-12">
 
                             <span *ngFor="let modelo of arrayModelosFiltros">
-                                <input type="radio"  [value]="modelo" formControlName="modelo"/> <a class="filtro-opcao">&nbsp;{{modelo}}</a>  <br>
+                                <input type="radio"  [value]="modelo" formControlName="modelo" />&nbsp;
+                                <a class="filtro-opcao" (click)="filtrarModelo( modelo )" >{{modelo}}</a><br>
                             </span>
 
                         </div>
-
                     </div>
 
                     <div class="row py-2">
-
                         <div class="col-12">
 
                             <span *ngFor="let cor of arrayCoresFiltros">
-                                <input type="radio"  [value]="cor" formControlName="cor"/> {{cor}} <br>
+                                <input type="radio"  [value]="cor" formControlName="cor" />&nbsp;
+                                <a class="filtro-opcao" (click)="filtrarCor( cor )">{{cor}}</a><br>
                             </span>
 
                         </div>
-
                     </div>
 
                     <div class="row py-2">
@@ -91,7 +87,7 @@
                         <div class="col-12">
 
                             <span *ngFor="let numero of arrayNumerosFiltros">
-                                <input type="checkbox"  [value]="numero" formControlName="numero"/> {{numero}} <br>
+                                <input type="radio"  [value]="numero" formControlName="numero"/> {{numero}} <br>
                             </span>
 
                         </div>

@@ -98,84 +98,100 @@ export class ProdutosComponent implements OnInit {
     return array;
   }
 
+
   aplicarFiltros(){
 
     //Define array de filtro e preenche
-    var arrayFiltro: Array<Produto> = [];
-    
-    for (var x = 0; x < this.pd.preDatabase.length; x++){
-      if(this.pd.preDatabase[x].disponivel)
-        arrayFiltro.push(this.pd.preDatabase[x]);
-    }
-    
-
+    var arrayFiltro: Array<Produto> = this.preencherArray();
 
     //Filtro dos tipos
-
     if(this.tipo.value != "todos"){
 
-      var array: Array<Produto> = [];
+      var arrayIntermediario: Array<Produto> = [];
       
+      if (this.tipo.value == "lancamentos") {
 
+        for(var x=0; x < arrayFiltro.length; x++){
+  
+          if( arrayFiltro[x].lancamento )
+            arrayIntermediario.push( arrayFiltro[x] );
+   
+        }
+  
+      } else if (this.tipo.value == "promocoes") {
+  
+        for(var x=0; x < arrayFiltro.length; x++){
+  
+          if( arrayFiltro[x].promocao )
+            arrayIntermediario.push( arrayFiltro[x] );
+   
+        }
+  
+      } else if (this.tipo.value == "pronta-entrega") {
+  
+        for(var x=0; x < arrayFiltro.length; x++){
+  
+          if( arrayFiltro[x].prontaEntrega )
+          arrayIntermediario.push( arrayFiltro[x] );
+   
+        }
+  
+      }
+
+      arrayFiltro = arrayIntermediario;
     }
 
+    //Filtro de modelo
+    if(this.modelo.value != ""){
 
-    if (this.tipo.value == "lancamentos") {
+      var arrayIntermediario: Array<Produto> = [];
+      
+      for(var x=0; x < arrayFiltro.length; x++){
 
-      for(var x=0; x < this.pd.preDatabase.length; x++){
+        if(arrayFiltro[x].modelo == this.modelo.value)
+          arrayIntermediario.push(arrayFiltro[x])
 
-        if( this.pd.preDatabase[x].disponivel && this.pd.preDatabase[x].lancamento )
-          arrayFiltro.push( this.pd.preDatabase[x] );
- 
       }
 
-    } else if (this.tipo.value == "promocoes") {
-
-      for(var x=0; x < this.pd.preDatabase.length; x++){
-
-        if( this.pd.preDatabase[x].disponivel &&  this.pd.preDatabase[x].promocao )
-          arrayFiltro.push( this.pd.preDatabase[x] );
- 
-      }
-
-    } else if (this.tipo.value == "pronta-entrega") {
-
-      for(var x=0; x < this.pd.preDatabase.length; x++){
-
-        if( this.pd.preDatabase[x].disponivel &&  this.pd.preDatabase[x].prontaEntrega )
-          arrayFiltro.push( this.pd.preDatabase[x] );
- 
-      }
-
+      arrayFiltro = arrayIntermediario;
     }
-
     
+    //Filtro de cor
+    if(this.cor.value != ""){
+
+      var arrayIntermediario: Array<Produto> = [];
+      
+      for(var x=0; x < arrayFiltro.length; x++){
+
+        if(arrayFiltro[x].cor == this.cor.value)
+          arrayIntermediario.push(arrayFiltro[x])
+
+      }
+
+      arrayFiltro = arrayIntermediario;
+    }
+    
+
     //Atualiza o array
     this.produtosExibidos = arrayFiltro;
 
 
   }
 
-
-  filtrarLancamentos(){
-    this.tipo.setValue("lancamentos");
+  filtrarTipo(tipo: String){
+    this.tipo.setValue(tipo);
     this.aplicarFiltros();
   }
 
-  filtrarPromocoes(){
-    this.tipo.setValue("promocoes");
+  filtrarModelo(modelo: String){
+    this.modelo.setValue(modelo);
     this.aplicarFiltros();
   }
 
-  filtrarProntaEntrega(){
-    this.tipo.setValue("pronta-entrega");
+  filtrarCor(cor: String){
+    this.cor.setValue(cor);
     this.aplicarFiltros();
   }
-
-  filtrarTodosProdutos(){
-    this.tipo.setValue("todos");
-    this.aplicarFiltros();
-  }
-
+  
 
 }
