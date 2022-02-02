@@ -83,15 +83,14 @@
                     </div>
 
                     <div class="row py-2">
-
                         <div class="col-12">
 
                             <span *ngFor="let numero of arrayNumerosFiltros">
-                                <input type="radio"  [value]="numero" formControlName="numero"/> {{numero}} <br>
+                                <input type="radio"  [value]="numero" formControlName="numero"/>&nbsp;
+                                <a class="filtro-opcao" (click)="filtrarNumero( numero )">{{numero}}</a><br>
                             </span>
 
                         </div>
-
                     </div>
                                       
                 </form>  

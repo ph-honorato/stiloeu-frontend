@@ -171,6 +171,28 @@ export class ProdutosComponent implements OnInit {
       arrayFiltro = arrayIntermediario;
     }
     
+    //Filtro de numero
+    if(this.numero.value != ""){
+
+      var arrayIntermediario: Array<Produto> = [];
+      
+      for(var x=0; x < arrayFiltro.length; x++){
+
+        for (var y=0; y < arrayFiltro[x].tamanhos.length; y++){
+          
+          if(arrayFiltro[x].tamanhos[y] == this.numero.value ){
+
+            arrayIntermediario.push(arrayFiltro[x]);
+            y = arrayFiltro[x].tamanhos.length;
+
+          }
+
+        } 
+
+      }
+
+      arrayFiltro = arrayIntermediario;
+    }
 
     //Atualiza o array
     this.produtosExibidos = arrayFiltro;
@@ -190,6 +212,11 @@ export class ProdutosComponent implements OnInit {
 
   filtrarCor(cor: String){
     this.cor.setValue(cor);
+    this.aplicarFiltros();
+  }
+
+  filtrarNumero(numero: Number){
+    this.numero.setValue(numero);
     this.aplicarFiltros();
   }
   
