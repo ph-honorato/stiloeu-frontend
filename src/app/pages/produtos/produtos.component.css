@@ -39,8 +39,5 @@
 .filtro-opcao {
     cursor: pointer;
     color: black;
-}
-
-.filtro-opcao:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }

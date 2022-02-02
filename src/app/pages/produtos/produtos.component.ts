@@ -43,7 +43,7 @@ export class ProdutosComponent implements OnInit {
 
     //Form de Filtros
     this.filtrosForm = fb.group({
-      'tipo':         ['todos', [ Validators.required ]],
+      'tipo':         ['', [ Validators.required ]],
       'modelo':       ['', [ Validators.required ]],
       'cor':          ['', [ Validators.required ]],
       'numero':       ['', [ Validators.required ]]
@@ -59,30 +59,9 @@ export class ProdutosComponent implements OnInit {
   ngOnInit(): void { }
 
 
-  addTest(){
-
-    // var p: Produto = {
-    //   id: 0, 
-    //   nome: "Sapatilha Azul",
-    //   descricao: "Sapatilha de Couro Preto",
-    //   foto: "../../assets/sapatilhapreta.jpeg",
-    //   preco: 74.99,
-    //   tamanhos: [35, 37, 38],
-    //   modelo: "sapatilha",
-    //   cor: "preto",
-    //   disponivel: true,
-    //   dataAdicao: "2022-01-27",
-    //   prontaEntrega: false
-    // }
-
-    // this.produtosExibidos.push(p);
-
-    // console.log(this.filtrosForm);
-
-    console.log(this.numero);
-
+  test(){
+    console.log("teste");
   }
-  
 
   preencherArray(){
 
@@ -105,7 +84,7 @@ export class ProdutosComponent implements OnInit {
     var arrayFiltro: Array<Produto> = this.preencherArray();
 
     //Filtro dos tipos
-    if(this.tipo.value != "todos"){
+    if(this.tipo.value != ""){
 
       var arrayIntermediario: Array<Produto> = [];
       
@@ -127,16 +106,7 @@ export class ProdutosComponent implements OnInit {
    
         }
   
-      } else if (this.tipo.value == "pronta-entrega") {
-  
-        for(var x=0; x < arrayFiltro.length; x++){
-  
-          if( arrayFiltro[x].prontaEntrega )
-          arrayIntermediario.push( arrayFiltro[x] );
-   
-        }
-  
-      }
+      } 
 
       arrayFiltro = arrayIntermediario;
     }
@@ -196,29 +166,50 @@ export class ProdutosComponent implements OnInit {
 
     //Atualiza o array
     this.produtosExibidos = arrayFiltro;
-
-
   }
 
   filtrarTipo(tipo: String){
-    this.tipo.setValue(tipo);
+    if(this.tipo.value != tipo)
+      this.tipo.setValue(tipo);
+    else
+      this.tipo.setValue("");
+
     this.aplicarFiltros();
   }
 
   filtrarModelo(modelo: String){
-    this.modelo.setValue(modelo);
+    if(this.modelo.value != modelo)
+      this.modelo.setValue(modelo)
+    else
+      this.modelo.setValue("");
+
     this.aplicarFiltros();
   }
 
   filtrarCor(cor: String){
-    this.cor.setValue(cor);
+    if(this.cor.value != cor)
+      this.cor.setValue(cor);
+    else
+      this.cor.setValue("");
+
     this.aplicarFiltros();
   }
 
   filtrarNumero(numero: Number){
-    this.numero.setValue(numero);
+    if(this.numero.value != numero)
+      this.numero.setValue(numero);
+    else
+      this.numero.setValue("");
+
     this.aplicarFiltros();
   }
   
+  limparFiltros(){
+    this.tipo.setValue("");
+    this.modelo.setValue("");
+    this.cor.setValue("");
+    this.numero.setValue("");
+    this.aplicarFiltros();
+  }
 
 }

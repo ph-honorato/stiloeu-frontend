@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="col-6 text-right">
-                        <b style="color: white;font-size: 13px;text-decoration: underline;cursor: pointer;" (click)="aplicarFiltros()">Aplicar</b>
+                        <b *ngIf="tipo.value != '' || modelo.value != '' || cor.value != '' || numero.value != '' " style="color: white;font-size: 13px;text-decoration: underline;cursor: pointer;" (click)="limparFiltros()">Limpar</b>
                     </div>
 
                 </div>
@@ -37,24 +37,16 @@
                     <div class="row py-2">
                         <div class="col-12">
 
-                            <span>
-                                <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo" />&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarTipo('lancamentos')" for="lancamentos">Lançamentos</a>  <br>
-                            </span>
+                            <span >
+                                <a class="filtro-opcao" (click)="filtrarTipo('lancamentos')">
+                                    <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo" /> Lançamentos
+                                </a>
+                            </span><br>
 
-                            <span>
-                                <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" />&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarTipo('promocoes')">Promoções</a>  <br>
-                            </span>
-
-                            <span>
-                                <input type="radio" id="pronta-entrega" value="pronta-entrega" formControlName="tipo" />&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarTipo('pronta-entrega')">Pronta Entrega</a>  <br> 
-                            </span>
-
-                            <span>
-                                <input type="radio" id="todos" value="todos" formControlName="tipo" />&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarTipo('todos')">Todos Produtos</a>  <br>
+                            <span >
+                                <a class="filtro-opcao" (click)="filtrarTipo('promocoes')">
+                                    <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" /> Promoções
+                                </a>
                             </span>
                         
                         </div>
@@ -64,8 +56,9 @@
                         <div class="col-12">
 
                             <span *ngFor="let modelo of arrayModelosFiltros">
-                                <input type="radio"  [value]="modelo" formControlName="modelo" />&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarModelo( modelo )" >{{modelo}}</a><br>
+                                <a class="filtro-opcao" (click)="filtrarModelo( modelo )" >
+                                    <input type="radio"  [value]="modelo" formControlName="modelo" /> {{modelo}}
+                                </a><br>
                             </span>
 
                         </div>
@@ -75,8 +68,9 @@
                         <div class="col-12">
 
                             <span *ngFor="let cor of arrayCoresFiltros">
-                                <input type="radio"  [value]="cor" formControlName="cor" />&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarCor( cor )">{{cor}}</a><br>
+                                <a class="filtro-opcao" (click)="filtrarCor( cor )">
+                                    <input type="radio"  [value]="cor" formControlName="cor" /> {{cor}}
+                                </a><br>
                             </span>
 
                         </div>
@@ -86,8 +80,9 @@
                         <div class="col-12">
 
                             <span *ngFor="let numero of arrayNumerosFiltros">
-                                <input type="radio"  [value]="numero" formControlName="numero"/>&nbsp;
-                                <a class="filtro-opcao" (click)="filtrarNumero( numero )">{{numero}}</a><br>
+                                <a class="filtro-opcao" (click)="filtrarNumero( numero )">
+                                    <input type="radio"  [value]="numero" formControlName="numero"/> {{numero}}
+                                </a><br>
                             </span>
 
                         </div>
