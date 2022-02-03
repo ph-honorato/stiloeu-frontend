@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef  } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators, AbstractControl } from '@angular/forms';
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+
 
 import { PreDatabase } from 'src/app/models/pre-database.model';
 import { Produto } from 'src/app/models/produto.model';
@@ -15,6 +17,9 @@ export class ProdutosComponent implements OnInit {
   //Array de Produtos Exibidos na Tela
   produtosExibidos: Array<Produto>;
 
+  //Produto exibido no modal
+  produtoExibido: Produto;
+
   //Array de modelos, cores e números dos produtos
   arrayModelosFiltros: Array<String>;
   arrayCoresFiltros: Array<String>;
@@ -26,15 +31,23 @@ export class ProdutosComponent implements OnInit {
   modelo: AbstractControl;
   cor: AbstractControl;
   numero: AbstractControl;
+
+  //Declaraçao de modais
+  modalRef?: BsModalRef;
   
+  //Construtor
   constructor (
     private pd: PreDatabase,
     private fb: FormBuilder,
+    private ms: BsModalService
 
   ) { 
 
     //Carrega o array de produtos com o banco de dados 
     this.produtosExibidos = this.preencherArray();
+
+    //Inicializa o produto
+    this.produtoExibido = new Produto;
 
     //Carregando array de filtros
     this.arrayModelosFiltros = ["Sapatilhas", "Sandálias"];
@@ -53,7 +66,6 @@ export class ProdutosComponent implements OnInit {
     this.modelo = this.filtrosForm.controls['modelo'];
     this.cor = this.filtrosForm.controls['cor'];
     this.numero = this.filtrosForm.controls['numero'];
-
   }
 
   ngOnInit(): void { }
@@ -210,6 +222,26 @@ export class ProdutosComponent implements OnInit {
     this.cor.setValue("");
     this.numero.setValue("");
     this.aplicarFiltros();
+  }
+
+
+  openModal(template: TemplateRef<any>, produto: Produto) {
+
+    this.selecionaProduto(produto);
+
+    var config = {
+      animated: true
+    };
+
+    this.modalRef = this.ms.show(template, config);
+  }
+
+
+  selecionaProduto( produto: Produto ){
+
+    this.produtoExibido = produto;
+    console.log("tst", this.produtoExibido);
+
   }
 
 }

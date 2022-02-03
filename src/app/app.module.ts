@@ -12,6 +12,9 @@ import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
 
+//Modal
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,8 @@ import { TutorialComponent } from './pages/tutorial/tutorial.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
