@@ -115,7 +115,7 @@
 
                 <div class="row" >
 
-                    <div class="col-4 py-3 card-fotos text-center" *ngFor="let produto of produtosExibidos;" (click)="openModal(template, produto)">
+                    <div class="col-4 py-3 card-fotos text-center" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
                         
                         <img class="foto mb-3" [src]="produto.foto" alt="foto"><br>
 
@@ -136,22 +136,31 @@
 </div>
 
 
-<!-- MODAL -->
-
-<ng-template #template>
-
-    <div class="modal-header">
+<!---Modal Erro Doação--->
+<div bsModal #mProduto="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
     
-      <button type="button" class="close btn-close pull-right" aria-label="Close" (click)="modalRef?.hide()">
-        <span aria-hidden="true" class="visually-hidden">&times;</span>
-      </button>
+    <div class="modal-dialog modal-lg">
+        
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h3 class="mb-0">produto</h3>
+
+                <button type="button" class="close pull-right btn-close" aria-label="Close" (click)="mProduto.hide()">
+                    <span aria-hidden="true" class="visually-hidden">&times;</span>
+                </button>
+
+            </div>
+        
+            <div class="modal-body">
+
+                <h3>{{produtoExibido.nome}}</h3>
+
+            </div>
     
+        </div>
+
     </div>
-    
-    <div class="modal-body">
 
-      <b>{{produtoExibido.nome}}</b>
-    
-    </div>
-
-</ng-template>
+</div>

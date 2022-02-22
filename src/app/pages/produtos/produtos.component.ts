@@ -1,7 +1,6 @@
-import { Component, OnInit, TemplateRef  } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild  } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators, AbstractControl } from '@angular/forms';
-import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
-
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 import { PreDatabase } from 'src/app/models/pre-database.model';
 import { Produto } from 'src/app/models/produto.model';
@@ -33,13 +32,12 @@ export class ProdutosComponent implements OnInit {
   numero: AbstractControl;
 
   //Declaraçao de modais
-  modalRef?: BsModalRef;
+  @ViewChild('mProduto', { static: false }) mProduto?: ModalDirective; //Modal de erro na Checagem
   
   //Construtor
   constructor (
     private pd: PreDatabase,
-    private fb: FormBuilder,
-    private ms: BsModalService
+    private fb: FormBuilder
 
   ) { 
 
@@ -66,6 +64,7 @@ export class ProdutosComponent implements OnInit {
     this.modelo = this.filtrosForm.controls['modelo'];
     this.cor = this.filtrosForm.controls['cor'];
     this.numero = this.filtrosForm.controls['numero'];
+
   }
 
   ngOnInit(): void { }
@@ -225,22 +224,11 @@ export class ProdutosComponent implements OnInit {
   }
 
 
-  openModal(template: TemplateRef<any>, produto: Produto) {
-
-    this.selecionaProduto(produto);
-
-    var config = {
-      animated: true
-    };
-
-    this.modalRef = this.ms.show(template, config);
-  }
-
 
   selecionaProduto( produto: Produto ){
 
     this.produtoExibido = produto;
-    console.log("tst", this.produtoExibido);
+    this.mProduto?.show();
 
   }
 
