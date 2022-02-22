@@ -12,6 +12,8 @@
 
     <div class="row">
 
+        <!-- FILTROS -->
+
         <div class="col-3">
             
             <div class="container-fluid filtro-superior">
@@ -35,6 +37,7 @@
                 <form [formGroup]="filtrosForm" >
             
                     <div class="row py-2">
+
                         <div class="col-12">
 
                             <span >
@@ -50,9 +53,11 @@
                             </span>
                         
                         </div>
+
                     </div>
 
                     <div class="row py-2">
+                        
                         <div class="col-12">
 
                             <span *ngFor="let modelo of arrayModelosFiltros">
@@ -62,9 +67,11 @@
                             </span>
 
                         </div>
+
                     </div>
 
                     <div class="row py-2">
+                        
                         <div class="col-12">
 
                             <span *ngFor="let cor of arrayCoresFiltros">
@@ -74,9 +81,11 @@
                             </span>
 
                         </div>
+
                     </div>
 
                     <div class="row py-2">
+
                         <div class="col-12">
 
                             <span *ngFor="let numero of arrayNumerosFiltros">
@@ -86,17 +95,21 @@
                             </span>
 
                         </div>
+                    
                     </div>
                                       
                 </form>  
 
             </div>
 
-            {{filtrosForm.value | json}}
+            <!-- {{filtrosForm.value | json}} -->
 
         </div>
 
-        <div class="col-9">
+
+        <!-- PRODUTOS -->
+
+        <div class="col-9 p-0">
 
             <div class="container-fluid" >
 
@@ -123,7 +136,8 @@
 </div>
 
 
-<!-- Modal de produto -->
+<!-- MODAL -->
+
 <ng-template #template>
 
     <div class="modal-header">

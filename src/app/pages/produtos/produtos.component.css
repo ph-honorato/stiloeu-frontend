@@ -1,14 +1,14 @@
 
 
-.card-fotos {
+/* FOTOS */
 
+.card-fotos {
     /* background-color: rgb(243, 243, 243); */
     height: 400px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     cursor: zoom-in;
     border-radius: 5px;
-
 }
 
 .card-fotos:hover {
@@ -21,6 +21,8 @@
 }
 
 
+/* BOX DE FILTRO */
+
 .filtro-superior {
     height: 40px;
     background-color: black;
@@ -31,6 +33,7 @@
 }
 
 
+/* OPÇÕES DO FILTRO */
 
 .filtro-opcao {
     cursor: pointer;
@@ -38,9 +41,9 @@
     text-decoration: none;
 }
 
-.filtro-opcao:hover {
-    /* text-decoration: underline; */
+/* .filtro-opcao:hover {
+    text-decoration: underline;
     font-size: 17px;
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
-}
+} */
