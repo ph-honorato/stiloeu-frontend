@@ -6,6 +6,9 @@ import { PreDatabase } from 'src/app/models/pre-database.model';
 import { Produto } from 'src/app/models/produto.model';
 
 
+import { FiltroService } from 'src/app/filtro.service';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-produtos',
   templateUrl: './produtos.component.html',
@@ -34,10 +37,17 @@ export class ProdutosComponent implements OnInit {
   //Declaraçao de modais
   @ViewChild('mProduto', { static: false }) mProduto?: ModalDirective; //Modal de erro na Checagem
   
+  //Eventos da barra superior
+  clickEventsubscriptionProdutos: Subscription;
+  clickEventsubscriptionLancamentos: Subscription;
+  clickEventsubscriptionPromocoes: Subscription;
+
+
   //Construtor
   constructor (
     private pd: PreDatabase,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private fs: FiltroService
 
   ) { 
 
@@ -65,14 +75,24 @@ export class ProdutosComponent implements OnInit {
     this.cor = this.filtrosForm.controls['cor'];
     this.numero = this.filtrosForm.controls['numero'];
 
+    //Eventos da barra superior
+    this.clickEventsubscriptionProdutos = this.fs.getClickEventProdutos().subscribe(()=>{
+      this.limparFiltros();
+    })
+
+    this.clickEventsubscriptionLancamentos = this.fs.getClickEventLancamentos().subscribe(()=>{
+      this.tipo.setValue('lancamentos');
+      this.aplicarFiltros();
+    })
+
+    this.clickEventsubscriptionPromocoes = this.fs.getClickEventPromocoes().subscribe(()=>{
+      this.tipo.setValue('promocoes');
+      this.aplicarFiltros();
+    })
+
   }
 
   ngOnInit(): void { }
-
-
-  test(){
-    console.log("teste");
-  }
 
   preencherArray(){
 

@@ -7,7 +7,7 @@ import { Produto } from 'src/app/models/produto.model';
 // Icone
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
-
+import { FiltroService } from './filtro.service';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +27,10 @@ export class AppComponent implements OnInit {
   /*
     Construtor e OnInit
   */
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private fs: FiltroService
+  ) { }
 
   ngOnInit() { }
 
@@ -43,6 +46,24 @@ export class AppComponent implements OnInit {
 
   abrirPagina(url: string){
     this.router.navigateByUrl(url)
+  }
+
+  abrirProdutos(){
+    this.router.navigateByUrl("/").then( () => {
+      this.fs.sendClickEventProdutos();
+    })
+  }
+
+  abrirLancamentos(){
+    this.router.navigateByUrl("/").then( () => {
+      this.fs.sendClickEventLancamentos();
+    })
+  }
+
+  abrirPromocoes(){
+    this.router.navigateByUrl("/").then( () => {
+      this.fs.sendClickEventPromocoes();
+    })
   }
 
 }
