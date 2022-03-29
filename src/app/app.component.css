@@ -1,36 +1,40 @@
 
-
 .toolbar-superior {
     background-color: black;
     height: 100px;
 }
 
-.toolbar-inferior {
-    background-color: whitesmoke;
-    height: 60px;
-}
-
-
-.superior-icone {
-    color: white;
-    font-size: 40px;
+.logo {
+    height: 40px;
+    width: auto;
     cursor: pointer;
 }
 
-.superior-icone:hover {
-    color: rgb(235, 137, 255);
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.3s;
+.superior-icone {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
 }
 
-.superior-legenda {
+/* .superior-icone:hover {
+    font-size: 35px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+} */
+
+/* .superior-legenda {
     color: white;
     margin: 0;
     font-size: 7px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     cursor: pointer;
-}
+} */
 
+
+.toolbar-inferior {
+    background-color: whitesmoke;
+    height: 60px;
+}
 
 .opcao {
     color: black;
@@ -42,8 +46,7 @@
 }
 
 .opcao:hover {
-    color: rgb(27, 27, 27);
-    font-size: 17px;
+    color: gray;
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
 }

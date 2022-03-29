@@ -12,19 +12,20 @@
 
       <div class="row align-items-center" style="height: 100%;">
 
-        <div class="col-10 mx-auto"> 
-          <h3 style="color: white;margin: 0;">LOGO</h3>
+        <div class="col-10"> 
+          <img src="../assets/logo.png" class="logo" (click)="abrirProdutos()">
         </div>
 
-        <div class="col-1 text-center p-0" (click)="abrirWhatsapp()">
-          <fa-icon class="superior-icone" [icon]="faWhatsapp"></fa-icon>
-          <p class="superior-legenda">NOSSO WHATSAPP</p>
+        <div class="col-2 text-right p-0" (click)="abrirWhatsapp()">
+          <fa-icon class="superior-icone mr-3" [icon]="faWhatsapp"></fa-icon>
+          <fa-icon class="superior-icone" [icon]="faInstagram"></fa-icon>
+          <!-- <p class="superior-legenda">NOSSO WHATSAPP</p> -->
         </div>
 
-        <div class="col-1 text-center p-0">
+        <!-- <div class="col-1 text-center p-0">
           <fa-icon class="superior-icone" [icon]="faInstagram"></fa-icon>
           <p class="superior-legenda">NOSSO INSTAGRAM</p>
-        </div>
+        </div> -->
 
       </div>
 
