@@ -51,3 +51,33 @@
     transition-duration: 0.1s;
 }
 
+
+
+.toolbar-superior-mobile {
+    background-color: black;
+    height: 70px;
+}
+
+.logo-mobile {
+    height: 25px;
+    width: auto;
+    cursor: pointer;
+}
+
+.superior-icone-mobile {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.toolbar-inferior-mobile {
+    background-color: black;
+}
+
+.opcao-mobile {
+    color: white;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    margin: 2px 0px 3px 0px;
+}

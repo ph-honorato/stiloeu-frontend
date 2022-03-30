@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,8 +13,9 @@ import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
 
-//Modal
+//NGX Bootstrap
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    ModalModule.forRoot()
+    BrowserAnimationsModule,
+    ModalModule.forRoot(),
+    CollapseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

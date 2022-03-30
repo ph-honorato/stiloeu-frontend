@@ -3,66 +3,123 @@
 
 <body>
   
+  <!-- DESKTOP -->
+  <div class="d-none d-lg-inline">
+  
+    <!-- TOOLBAR SUPERIOR -->
+    <div class="container-fluid toolbar-superior" > 
+      
+      <div class="container" style="height: 100%;">
 
-  <!-- TOOLBAR SUPERIOR -->
+        <div class="row align-items-center" style="height: 100%;">
 
-  <div class="container-fluid toolbar-superior" > 
+          <div class="col-10"> 
+            <img src="../assets/logo_rosa.png" class="logo" (click)="abrirProdutos()">
+          </div>
+
+          <div class="col-2 text-right p-0">
+            <fa-icon class="superior-icone mr-3" [icon]="faWhatsapp" (click)="abrirWhatsapp()"></fa-icon>
+            <fa-icon class="superior-icone" [icon]="faInstagram" (click)="abrirInstagram()"></fa-icon>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TOOLBAR INFERIOR -->
+    <div class="container-fluid toolbar-inferior mb-5">
+
+      <div class="container" style="height: 100%;">
+
+        <div class="row align-items-center" style="height: 100%;">
+
+          <div class="col-1"></div>
+
+          <div class="col-2 mx-auto"> 
+            <p class="opcao" (click)="abrirProdutos()">PRODUTOS</p>
+          </div>
+
+          <div class="col-2 mx-auto"> 
+            <p class="opcao" (click)="abrirLancamentos()">LANÇAMENTOS</p>
+          </div>
+
+          <div class="col-2 mx-auto"> 
+            <p class="opcao" (click)="abrirPromocoes()">PROMOÇÕES</p>
+          </div>
+
+          <div class="col-2 mx-auto"> 
+            <p class="opcao" (click)="abrirPagina('/quemsomos')">QUEM SOMOS</p>
+          </div>
+
+          <div class="col-2 mx-auto"> 
+            <p class="opcao" (click)="abrirPagina('/comofunciona')">COMO FUNCIONA</p>
+          </div>
+
+          <div class="col-1"></div>
+
+        </div>
+
+      </div>
     
-    <div class="container" style="height: 100%;">
-
-      <div class="row align-items-center" style="height: 100%;">
-
-        <div class="col-10"> 
-          <img src="../assets/logo_rosa.png" class="logo" (click)="abrirProdutos()">
-        </div>
-
-        <div class="col-2 text-right p-0">
-          <fa-icon class="superior-icone mr-3" [icon]="faWhatsapp" (click)="abrirWhatsapp()"></fa-icon>
-          <fa-icon class="superior-icone" [icon]="faInstagram" (click)="abrirInstagram()"></fa-icon>
-        </div>
-
-      </div>
-
     </div>
-
+      
   </div>
+  
+  
+  <!-- MOBILE -->
+  <div class="d-inline d-lg-none">
 
+    <!-- TOOLBAR SUPERIOR -->
+    <div class="container-fluid toolbar-superior-mobile" > 
+      
+      <div class="container" style="height: 100%;">
 
-  <!-- TOOLBAR INFERIOR -->
+        <div class="row align-items-center" style="height: 100%;">
 
-  <div class="container-fluid toolbar-inferior mb-5">
+          <div class="col-10"> 
+            <img src="../assets/logo_rosa.png" class="logo-mobile" (click)="abrirProdutos()">
+          </div>
 
-    <div class="container" style="height: 100%;">
+          <div class="col-2 text-right p-0">
+            <fa-icon class="superior-icone-mobile" [icon]="faBars" (click)="colapso = !colapso"></fa-icon>
+          </div>
 
-      <div class="row align-items-center" style="height: 100%;">
-
-        <div class="col-1"></div>
-
-        <div class="col-2 mx-auto"> 
-          <p class="opcao" (click)="abrirProdutos()">PRODUTOS</p>
         </div>
-
-        <div class="col-2 mx-auto"> 
-          <p class="opcao" (click)="abrirLancamentos()">LANÇAMENTOS</p>
-        </div>
-
-        <div class="col-2 mx-auto"> 
-          <p class="opcao" (click)="abrirPromocoes()">PROMOÇÕES</p>
-        </div>
-
-        <div class="col-2 mx-auto"> 
-          <p class="opcao" (click)="abrirPagina('/quemsomos')">QUEM SOMOS</p>
-        </div>
-
-        <div class="col-2 mx-auto"> 
-          <p class="opcao" (click)="abrirPagina('/comofunciona')">COMO FUNCIONA</p>
-        </div>
-
-        <div class="col-1"></div>
 
       </div>
 
     </div>
+
+
+    <div id="collapseBasic" [collapse]="colapso" [isAnimated]="true" class="container-fluid toolbar-inferior-mobile">
+
+      <div class="container" style="height: 100%;">
+
+        <div class="row align-items-center" style="height: 100%;">
+
+          <div class="col-12 text-right py-0 pb-3 pt-2">
+            
+            <p class="opcao-mobile" (click)="abrirProdutos()">PRODUTOS</p>
+            
+
+            <p class="opcao-mobile" (click)="abrirLancamentos()">LANÇAMENTOS</p>
+            
+            <p class="opcao-mobile" (click)="abrirPromocoes()">PROMOÇÕES</p>
+            
+            <p class="opcao-mobile" (click)="abrirPagina('/quemsomos')">QUEM SOMOS</p>
+            
+            <p class="opcao-mobile" (click)="abrirPagina('/comofunciona')">COMO FUNCIONA</p>
+          
+          </div>
+
+        </div>
+
+      </div>
+    
+    </div>
+
 
   </div>
 

@@ -4,8 +4,9 @@ import { Router } from '@angular/router';
 //Models
 import { Produto } from 'src/app/models/produto.model';
 
-// Icone
+// Icones
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import { FiltroService } from './filtro.service';
 
@@ -20,9 +21,14 @@ export class AppComponent implements OnInit {
   /*
     Variáveis
   */
+
+  // ícones
   faInstagram = faInstagram;
   faWhatsapp = faWhatsapp;
+  faBars = faBars;
 
+  // Colapso da barra mobile
+  colapso = true;
 
   /*
     Construtor e OnInit
