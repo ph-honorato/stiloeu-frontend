@@ -1,0 +1,166 @@
+
+
+<div class="container">
+
+    <div class="row mb-3">
+
+        <div class="col-12 text-center">
+            <h1>PRODUTOS</h1>
+        </div>
+        
+    </div>
+
+    <div class="row">
+
+        <!-- FILTROS -->
+
+        <div class="col-3">
+            
+            <div class="container-fluid filtro-superior">
+
+                <div class="row align-items-center" style="height: 100%;">
+
+                    <div class="col-6">
+                        <b style="color: white;">Filtros</b>
+                    </div>
+
+                    <div class="col-6 text-right">
+                        <b *ngIf="tipo.value != '' || modelo.value != '' || cor.value != '' || numero.value != '' " style="color: white;font-size: 13px;text-decoration: underline;cursor: pointer;" (click)="limparFiltros()">Limpar</b>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="container-fluid filtro-inferior">
+
+                <form [formGroup]="filtrosForm" >
+            
+                    <div class="row py-2">
+
+                        <div class="col-12">
+
+                            <span >
+                                <a class="filtro-opcao" (click)="filtrarTipo('lancamentos')">
+                                    <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo" /> Lançamentos
+                                </a>
+                            </span><br>
+
+                            <span >
+                                <a class="filtro-opcao" (click)="filtrarTipo('promocoes')">
+                                    <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" /> Promoções
+                                </a>
+                            </span>
+                        
+                        </div>
+
+                    </div>
+
+                    <div class="row py-2">
+                        
+                        <div class="col-12">
+
+                            <span *ngFor="let modelo of arrayModelosFiltros">
+                                <a class="filtro-opcao" (click)="filtrarModelo( modelo )" >
+                                    <input type="radio"  [value]="modelo" formControlName="modelo" /> {{modelo}}
+                                </a><br>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row py-2">
+                        
+                        <div class="col-12">
+
+                            <span *ngFor="let cor of arrayCoresFiltros">
+                                <a class="filtro-opcao" (click)="filtrarCor( cor )">
+                                    <input type="radio"  [value]="cor" formControlName="cor" /> {{cor}}
+                                </a><br>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row py-2">
+
+                        <div class="col-12">
+
+                            <span *ngFor="let numero of arrayNumerosFiltros">
+                                <a class="filtro-opcao" (click)="filtrarNumero( numero )">
+                                    <input type="radio"  [value]="numero" formControlName="numero"/> {{numero}}
+                                </a><br>
+                            </span>
+
+                        </div>
+                    
+                    </div>
+                                      
+                </form>  
+
+            </div>
+
+            <!-- {{filtrosForm.value | json}} -->
+
+        </div>
+
+
+        <!-- PRODUTOS -->
+
+        <div class="col-9 p-0">
+
+            <div class="container-fluid" >
+
+                <div class="row" >
+
+                    <div class="col-4 py-3 card-fotos text-center" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
+                        
+                        <img class="foto mb-3" [src]="produto.foto" alt="foto"><br>
+
+                        <b>{{produto.nome}}</b><br>
+
+                        <b>R$ {{produto.preco}}</b><br>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!---Modal Erro Doação--->
+<div bsModal #mProduto="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+    
+    <div class="modal-dialog modal-lg">
+        
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h3 class="mb-0">produto</h3>
+
+                <button type="button" class="close pull-right btn-close" aria-label="Close" (click)="mProduto.hide()">
+                    <span aria-hidden="true" class="visually-hidden">&times;</span>
+                </button>
+
+            </div>
+        
+            <div class="modal-body">
+
+                <h3>{{produtoExibido.nome}}</h3>
+
+            </div>
+    
+        </div>
+
+    </div>
+
+</div>

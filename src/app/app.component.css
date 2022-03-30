@@ -1,0 +1,53 @@
+
+.toolbar-superior {
+    background-color: black;
+    height: 100px;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    cursor: pointer;
+}
+
+.superior-icone {
+    color: #ff89f5;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.superior-icone:hover {
+    color: white;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+}
+
+/* .superior-legenda {
+    color: white;
+    margin: 0;
+    font-size: 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+} */
+
+
+.toolbar-inferior {
+    background-color: whitesmoke;
+    height: 60px;
+}
+
+.opcao {
+    color: black;
+    margin: 0;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    text-align: center;
+}
+
+.opcao:hover {
+    color: gray;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+}
+
