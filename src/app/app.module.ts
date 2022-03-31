@@ -16,6 +16,7 @@ import { TutorialComponent } from './pages/tutorial/tutorial.component';
 //NGX Bootstrap
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ModalModule.forRoot(),
-    CollapseModule
+    CollapseModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

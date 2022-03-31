@@ -1,10 +1,10 @@
 import { Component, OnInit, TemplateRef, ViewChild  } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators, AbstractControl } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { Router } from '@angular/router';
 
 import { PreDatabase } from 'src/app/models/pre-database.model';
 import { Produto } from 'src/app/models/produto.model';
-
 
 import { FiltroService } from 'src/app/filtro.service';
 import { Subscription } from 'rxjs';
@@ -47,7 +47,8 @@ export class ProdutosComponent implements OnInit {
   constructor (
     private pd: PreDatabase,
     private fb: FormBuilder,
-    private fs: FiltroService
+    private fs: FiltroService,
+    private router: Router
 
   ) { 
 
@@ -78,6 +79,7 @@ export class ProdutosComponent implements OnInit {
     //Eventos da barra superior
     this.clickEventsubscriptionProdutos = this.fs.getClickEventProdutos().subscribe(()=>{
       this.limparFiltros();
+      this.rolarParaProdutos();
     })
 
     this.clickEventsubscriptionLancamentos = this.fs.getClickEventLancamentos().subscribe(()=>{
@@ -93,6 +95,10 @@ export class ProdutosComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+  rolarParaProdutos(){
+    this.router.navigate([], {fragment: "produtos"});
+  }
 
   preencherArray(){
 
