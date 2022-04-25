@@ -85,11 +85,13 @@ export class ProdutosComponent implements OnInit {
     this.clickEventsubscriptionLancamentos = this.fs.getClickEventLancamentos().subscribe(()=>{
       this.tipo.setValue('lancamentos');
       this.aplicarFiltros();
+      this.rolarParaProdutos();
     })
 
     this.clickEventsubscriptionPromocoes = this.fs.getClickEventPromocoes().subscribe(()=>{
       this.tipo.setValue('promocoes');
       this.aplicarFiltros();
+      this.rolarParaProdutos();
     })
 
   }
@@ -97,7 +99,13 @@ export class ProdutosComponent implements OnInit {
   ngOnInit(): void { }
 
   rolarParaProdutos(){
-    this.router.navigate([], {fragment: "produtos"});
+
+    document.getElementById("produtos")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest"
+    });
+ 
   }
 
   preencherArray(){
