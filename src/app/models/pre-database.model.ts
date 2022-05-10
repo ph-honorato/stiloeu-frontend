@@ -42,6 +42,40 @@ export class PreDatabase {
             dataAdicao: "",
             dataModificacao: ""
         },
+        {
+            id: 2,
+            nome: "Sandália Rosa",
+            descricao: "Sandália rosa com tecido e couro",
+            foto: "../../assets/sandaliarosa.jpeg",
+            preco: 99.99,
+            tamanhos: [35, 36, 37, 39, 40],
+            modelo: "Sandálias",
+            cor: "Rosa",
+            disponivel: true,
+            prontaEntrega: true,
+            lancamento: false,
+            promocao: true,
+            precoPromocao: 89.99,
+            dataAdicao: "",
+            dataModificacao: ""
+        },
+        {
+            id: 4,
+            nome: "Sandália Rosa",
+            descricao: "Sandália rosa com tecido e couro",
+            foto: "../../assets/sandaliarosa.jpeg",
+            preco: 99.99,
+            tamanhos: [35, 36, 37, 39, 40],
+            modelo: "Sandálias",
+            cor: "Rosa",
+            disponivel: true,
+            prontaEntrega: true,
+            lancamento: false,
+            promocao: true,
+            precoPromocao: 89.99,
+            dataAdicao: "",
+            dataModificacao: ""
+        },
     ];
 
 }

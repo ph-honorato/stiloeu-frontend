@@ -19,8 +19,10 @@
     <div class="row mb-3">
 
         <div class="col-12 text-center">
-            <h1>PRODUTOS</h1>
+            <h1 class="d-none d-md-inline">PRODUTOS</h1>
+            <h2 class="d-inline d-md-none">PRODUTOS</h2>
         </div>
+
         
     </div>
 
@@ -28,7 +30,7 @@
 
         <!-- FILTROS -->
 
-        <div class="col-3">
+        <div class="col-0 col-lg-3 d-none d-lg-inline">
             
             <div class="container-fluid filtro-superior">
 
@@ -123,21 +125,54 @@
 
         <!-- PRODUTOS -->
 
-        <div class="col-9 p-0">
+        <div class="col-12 col-lg-9 p-0">
 
             <div class="container-fluid" >
 
-                <div class="row" >
+                <div class="row barra-informações mb-1">
 
-                    <div class="col-4 py-3 card-fotos text-center" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
+                    <div class="col-4 d-none d-md-inline" style="border-left: 10px black;">N Produtos Encontrados</div>
+                    <div class="col-6 col-md-4" style="margin-left: 1px gray;"> <span class="d-inline d-lg-none">Filtros</span> </div>
+                    
+                    <div class="col-4 d-none d-md-inline">Ordenar Por:</div>
+                    <div class="col-6 d-inline d-md-none text-right">Ordenar</div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="d-none d-md-inline col-md-4 card-produtos" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
                         
-                        <img class="foto mb-3" [src]="produto.foto" alt="foto"><br>
+                        <div class="row text-center py-1">
+                            <img class="foto mb-3" [src]="produto.foto" alt="foto">
+                        </div>
+                        
+                        <div class="row">
+                            <b>{{produto.nome}}</b>
+                            
+                        </div>
 
-                        <b>{{produto.nome}}</b><br>
-
-                        <b>R$ {{produto.preco}}</b><br>
+                        <div class="row">
+                            <b>R$ {{produto.preco}}</b>
+                        </div>
 
                     </div>
+
+                    <div class="container-fluid d-inline d-md-none card-produtos-mobile" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
+
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <img class="foto mb-3" [src]="produto.foto" alt="foto">
+                            </div>
+    
+                            <div class="col-8">
+                                <b>{{produto.nome}}</b><br>
+                                <b>R$ {{produto.preco}}</b>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
 
                 </div>
 
