@@ -3,31 +3,36 @@
 /* PRODUTOS */
 
 .foto {
-    width: 90%;
+    width: 95%;
     height: auto;
 }
 
 .card-produtos {
     /* background-color: rgb(243, 243, 243); */
-    height: 400px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
+    height: 450px;
     cursor: zoom-in;
-    border-radius: 5px;
 }
 
 .card-produtos-mobile {
     min-height: 100px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
     cursor: zoom-in;
-    border-radius: 5px;
 }
 
 .card-produtos:hover, .card-produtos-mobile:hover {
     outline: solid 0.2px rgb(207, 207, 207);
 }
 
+.nome-produto {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+
+.preco-produto {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    color: rgb(255, 70, 101);
+    font-weight: bold;
+}
 
 
 

@@ -22,16 +22,15 @@
             <h1 class="d-none d-md-inline">PRODUTOS</h1>
             <h2 class="d-inline d-md-none">PRODUTOS</h2>
         </div>
-
         
     </div>
 
     <div class="row">
 
         <!-- FILTROS -->
-
         <div class="col-0 col-lg-3 d-none d-lg-inline">
             
+            <!-- PARTE DE CIMA DO FILTRO -->
             <div class="container-fluid filtro-superior">
 
                 <div class="row align-items-center" style="height: 100%;">
@@ -48,6 +47,7 @@
 
             </div>
 
+            <!-- PARTE DE BAIXO DO FILTRO -->
             <div class="container-fluid filtro-inferior">
 
                 <form [formGroup]="filtrosForm" >
@@ -124,40 +124,58 @@
 
 
         <!-- PRODUTOS -->
-
         <div class="col-12 col-lg-9 p-0">
 
             <div class="container-fluid" >
 
-                <div class="row barra-informações mb-1">
+                <!-- BARRA SUPERIROR DE INFORMAÇÕES -->
+                <div class="row barra-informações mb-1 align-items-center">
 
-                    <div class="col-4 d-none d-md-inline" style="border-left: 10px black;">N Produtos Encontrados</div>
-                    <div class="col-6 col-md-4" style="margin-left: 1px gray;"> <span class="d-inline d-lg-none">Filtros</span> </div>
+                    <div class="col-4 d-none d-md-inline">
+                        <b>{{produtosExibidos.length}}</b>&nbsp;produtos encontrados.
+                    </div>
                     
-                    <div class="col-4 d-none d-md-inline">Ordenar Por:</div>
-                    <div class="col-6 d-inline d-md-none text-right">Ordenar</div>
+                    <div class="col-6 col-md-4">
+                        <span class="d-inline d-lg-none">Filtros</span>
+                    </div>
+                    
+                    <div class="col-4 d-none d-md-inline">
+                        Ordenar Por:
+                    </div>
+                    <div class="col-6 d-inline d-md-none text-right">
+                        Ordenar
+                    </div>
 
                 </div>
 
+                <!-- PRODUTOS -->
                 <div class="row">
 
-                    <div class="d-none d-md-inline col-md-4 card-produtos" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
+                    <!-- PRODUTOS DESKTOP -->
+                    <div class="d-none d-md-inline col-md-4 card-produtos mb-2" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
                         
-                        <div class="row text-center py-1">
-                            <img class="foto mb-3" [src]="produto.foto" alt="foto">
+                        <div class="row">
+                            <div class="col-12 p-0 text-center" >
+                                <img class="foto" [src]="produto.foto" alt="foto">
+                            </div>
                         </div>
                         
                         <div class="row">
-                            <b>{{produto.nome}}</b>
-                            
+                            <div class="col-12 py-1">
+                                <p class="nome-produto">{{produto.nome}}</p>
+                            </div>
                         </div>
 
                         <div class="row">
-                            <b>R$ {{produto.preco}}</b>
+                            <div class="col-12 py-1">
+                                <p class="preco-produto mb-0">R$ {{produto.preco}}</p>
+                                <p class="mb-0">à vista.</p>
+                            </div>
                         </div>
 
                     </div>
 
+                    <!-- PRODUTOS MOBILE -->
                     <div class="container-fluid d-inline d-md-none card-produtos-mobile" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
 
                         <div class="row">
@@ -173,7 +191,6 @@
                         
                     </div>
                     
-
                 </div>
 
             </div>
