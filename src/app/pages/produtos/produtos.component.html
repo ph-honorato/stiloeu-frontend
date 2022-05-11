@@ -36,7 +36,7 @@
                 <div class="row align-items-center" style="height: 100%;">
 
                     <div class="col-6">
-                        <b style="color: white;">Filtros</b>
+                        <b style="color: white;">FILTROS</b>
                     </div>
 
                     <div class="col-6 text-right">
@@ -56,13 +56,17 @@
 
                         <div class="col-12">
 
-                            <span >
+                            <span>
+                                <b style="color: black;font-size: 14px;">CATEGORIA</b>
+                            </span><br>
+
+                            <span>
                                 <a class="filtro-opcao" (click)="filtrarTipo('lancamentos')">
                                     <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo" /> Lançamentos
                                 </a>
                             </span><br>
 
-                            <span >
+                            <span>
                                 <a class="filtro-opcao" (click)="filtrarTipo('promocoes')">
                                     <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" /> Promoções
                                 </a>
@@ -75,6 +79,10 @@
                     <div class="row py-2">
                         
                         <div class="col-12">
+
+                            <span>
+                                <b style="color: black;font-size: 14px;">TIPO</b>
+                            </span><br>
 
                             <span *ngFor="let modelo of arrayModelosFiltros">
                                 <a class="filtro-opcao" (click)="filtrarModelo( modelo )" >
@@ -89,7 +97,11 @@
                     <div class="row py-2">
                         
                         <div class="col-12">
-
+                            
+                            <span>
+                                <b style="color: black;font-size: 14px;">COR</b>
+                            </span><br>
+                            
                             <span *ngFor="let cor of arrayCoresFiltros">
                                 <a class="filtro-opcao" (click)="filtrarCor( cor )">
                                     <input type="radio"  [value]="cor" formControlName="cor" /> {{cor}}
@@ -103,6 +115,10 @@
                     <div class="row py-2">
 
                         <div class="col-12">
+
+                            <span>
+                                <b style="color: black;font-size: 14px;">TAMANHO</b>
+                            </span><br>
 
                             <span *ngFor="let numero of arrayNumerosFiltros">
                                 <a class="filtro-opcao" (click)="filtrarNumero( numero )">
@@ -176,16 +192,16 @@
                     </div>
 
                     <!-- PRODUTOS MOBILE -->
-                    <div class="container-fluid d-inline d-md-none card-produtos-mobile" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
+                    <div class="container-fluid d-inline d-md-none card-produtos-mobile mb-2" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
 
-                        <div class="row">
+                        <div class="row align-items-center">
                             <div class="col-4 text-center">
-                                <img class="foto mb-3" [src]="produto.foto" alt="foto">
+                                <img class="foto m-2" [src]="produto.foto" alt="foto">
                             </div>
     
                             <div class="col-8">
-                                <b>{{produto.nome}}</b><br>
-                                <b>R$ {{produto.preco}}</b>
+                                <p class="nome-produto mb-2">{{produto.nome}}</p>
+                                <p class="preco-produto">R$ {{produto.preco}}</p>
                             </div>
                         </div>
                         
