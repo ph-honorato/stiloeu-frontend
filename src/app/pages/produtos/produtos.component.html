@@ -178,14 +178,21 @@
                         
                         <div class="row">
                             <div class="col-12 py-1">
-                                <p class="nome-produto">{{produto.nome}}</p>
+                                <p class="nome-produto" >{{produto.nome}}</p>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-12 py-1">
+                        <div class="row align-items-flex-end">
+                            <div class="col-12 py-1" *ngIf="!produto.promocao">
                                 <p class="preco-produto mb-0">R$ {{produto.preco}}</p>
                                 <p class="mb-0">à vista.</p>
+                            </div>
+
+                            <div class="col-12 py-1" *ngIf="produto.promocao">
+                                <span style="font-size: 12px;">De <span style="color: rgb(255, 70, 101);">R$ {{produto.preco}}</span>, por:</span>
+                                <p class="preco-produto mb-0">R$ {{produto.precoPromocao}}</p>
+                                <p class="mb-0">à vista.</p>
+                                <b>PROMOÇÃO!</b>
                             </div>
                         </div>
 
@@ -199,9 +206,16 @@
                                 <img class="foto m-2" [src]="produto.foto" alt="foto">
                             </div>
     
-                            <div class="col-8">
+                            <div class="col-8" *ngIf="!produto.promocao">
                                 <p class="nome-produto mb-2">{{produto.nome}}</p>
                                 <p class="preco-produto">R$ {{produto.preco}}</p>
+                            </div>
+
+                            <div class="col-8" *ngIf="produto.promocao">
+                                <b>PROMOÇÃO!</b><br>
+                                <span style="font-size: 12px;">De <span style="color: rgb(255, 70, 101);">R$ {{produto.preco}}</span>, por:</span>
+                                <p class="preco-produto mb-0">R$ {{produto.precoPromocao}}</p>
+                                <p class="mb-0">à vista.</p>
                             </div>
                         </div>
                         

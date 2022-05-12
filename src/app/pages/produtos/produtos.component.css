@@ -19,7 +19,7 @@
 }
 
 .card-produtos:hover, .card-produtos-mobile:hover {
-    outline: solid 0.2px rgb(207, 207, 207);
+    outline: solid 0.2px rgb(255, 70, 101);
 }
 
 .nome-produto {
@@ -29,7 +29,7 @@
 
 .preco-produto {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 25px;
+    font-size: 26px;
     color: rgb(255, 70, 101);
     font-weight: bold;
 }
