@@ -61,13 +61,13 @@
                             </span><br>
 
                             <span>
-                                <a class="filtro-opcao" (click)="filtrarTipo('lancamentos')">
+                                <a class="filtro-opcao" (click)="filtrarTipo('lancamentos', false)">
                                     <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo" /> Lançamentos
                                 </a>
                             </span><br>
 
                             <span>
-                                <a class="filtro-opcao" (click)="filtrarTipo('promocoes')">
+                                <a class="filtro-opcao" (click)="filtrarTipo('promocoes', false)">
                                     <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" /> Promoções
                                 </a>
                             </span>
@@ -85,7 +85,7 @@
                             </span><br>
 
                             <span *ngFor="let modelo of arrayModelosFiltros">
-                                <a class="filtro-opcao" (click)="filtrarModelo( modelo )" >
+                                <a class="filtro-opcao" (click)="filtrarModelo( modelo, false )" >
                                     <input type="radio"  [value]="modelo" formControlName="modelo" /> {{modelo}}
                                 </a><br>
                             </span>
@@ -103,7 +103,7 @@
                             </span><br>
                             
                             <span *ngFor="let cor of arrayCoresFiltros">
-                                <a class="filtro-opcao" (click)="filtrarCor( cor )">
+                                <a class="filtro-opcao" (click)="filtrarCor( cor, false )">
                                     <input type="radio"  [value]="cor" formControlName="cor" /> {{cor}}
                                 </a><br>
                             </span>
@@ -121,7 +121,7 @@
                             </span><br>
 
                             <span *ngFor="let numero of arrayNumerosFiltros">
-                                <a class="filtro-opcao" (click)="filtrarNumero( numero )">
+                                <a class="filtro-opcao" (click)="filtrarNumero( numero, false )">
                                     <input type="radio"  [value]="numero" formControlName="numero"/> {{numero}}
                                 </a><br>
                             </span>
@@ -152,7 +152,10 @@
                     </div>
                     
                     <div class="col-6 col-md-4">
-                        <span class="d-inline d-lg-none">Filtros</span>
+                        <div class="d-inline d-lg-none" (click)="abrirFiltrosMobile()" style="cursor: pointer">
+                            <fa-icon [icon]="faFilter"></fa-icon>
+                            <span >&nbsp;Filtros</span>
+                        </div>
                     </div>
                     
                     <div class="col-4 d-none d-md-inline">
@@ -232,7 +235,7 @@
 </div>
 
 
-<!---Modal Erro Doação--->
+<!---Modal Produtos--->
 <div bsModal #mProduto="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
     
     <div class="modal-dialog modal-lg">
@@ -253,6 +256,114 @@
 
                 <h3>{{produtoExibido.nome}}</h3>
 
+            </div>
+    
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!---Modal Filtros Mobile--->
+<div bsModal #mFiltro="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+    
+    <div class="modal-dialog modal-lg">
+        
+        <div class="modal-content">
+        
+            <div class="modal-body">
+
+                <form [formGroup]="filtrosForm" >
+            
+                    <div class="row py-2">
+
+                        <div class="col-12">
+
+                            <span>
+                                <b style="color: black;font-size: 14px;">CATEGORIA</b>
+                            </span><br>
+
+                            <span>
+                                <a class="filtro-opcao" (click)="filtrarTipo('lancamentos', true)">
+                                    <input type="radio" id="lancamentos" value="lancamentos" formControlName="tipo" /> Lançamentos
+                                </a>
+                            </span><br>
+
+                            <span>
+                                <a class="filtro-opcao" (click)="filtrarTipo('promocoes', true)">
+                                    <input type="radio" id="promocoes" value="promocoes" formControlName="tipo" /> Promoções
+                                </a>
+                            </span>
+                        
+                        </div>
+
+                    </div>
+
+                    <div class="row py-2">
+                        
+                        <div class="col-12">
+
+                            <span>
+                                <b style="color: black;font-size: 14px;">TIPO</b>
+                            </span><br>
+
+                            <span *ngFor="let modelo of arrayModelosFiltros">
+                                <a class="filtro-opcao" (click)="filtrarModelo( modelo, true )" >
+                                    <input type="radio"  [value]="modelo" formControlName="modelo" /> {{modelo}}
+                                </a><br>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row py-2">
+                        
+                        <div class="col-12">
+                            
+                            <span>
+                                <b style="color: black;font-size: 14px;">COR</b>
+                            </span><br>
+                            
+                            <span *ngFor="let cor of arrayCoresFiltros">
+                                <a class="filtro-opcao" (click)="filtrarCor( cor, true )">
+                                    <input type="radio"  [value]="cor" formControlName="cor" /> {{cor}}
+                                </a><br>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row py-2">
+
+                        <div class="col-12">
+
+                            <span>
+                                <b style="color: black;font-size: 14px;">TAMANHO</b>
+                            </span><br>
+
+                            <span *ngFor="let numero of arrayNumerosFiltros">
+                                <a class="filtro-opcao" (click)="filtrarNumero( numero, true )">
+                                    <input type="radio"  [value]="numero" formControlName="numero"/> {{numero}}
+                                </a><br>
+                            </span>
+
+                        </div>
+                    
+                    </div>
+
+                    <div class="row py-2">
+                        <div class="col-12" >
+                            <button class="btn" (click)="filtrarMobile()">Filtrar</button>
+                        </div>
+                    </div>
+                                      
+                </form>  
+
+                
             </div>
     
         </div>

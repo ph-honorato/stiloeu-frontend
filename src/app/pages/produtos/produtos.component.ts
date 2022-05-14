@@ -9,6 +9,8 @@ import { Produto } from 'src/app/models/produto.model';
 import { FiltroService } from 'src/app/filtro.service';
 import { Subscription } from 'rxjs';
 
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-produtos',
   templateUrl: './produtos.component.html',
@@ -35,12 +37,16 @@ export class ProdutosComponent implements OnInit {
   numero: AbstractControl;
 
   //Declaraçao de modais
-  @ViewChild('mProduto', { static: false }) mProduto?: ModalDirective; //Modal de erro na Checagem
+  @ViewChild('mProduto', { static: false }) mProduto?: ModalDirective; //Modal de produto
+  @ViewChild('mFiltro', { static: false }) mFiltro?: ModalDirective; //Modal de filtro mobile
   
   //Eventos da barra superior
   clickEventsubscriptionProdutos: Subscription;
   clickEventsubscriptionLancamentos: Subscription;
   clickEventsubscriptionPromocoes: Subscription;
+
+  //ícones
+  faFilter = faFilter;
 
 
   //Construtor
@@ -213,40 +219,44 @@ export class ProdutosComponent implements OnInit {
     this.produtosExibidos = arrayFiltro;
   }
 
-  filtrarTipo(tipo: String){
+  filtrarTipo(tipo: String, mobile: boolean){
     if(this.tipo.value != tipo)
       this.tipo.setValue(tipo);
     else
       this.tipo.setValue("");
-
-    this.aplicarFiltros();
+    
+    if(!mobile)
+      this.aplicarFiltros();
   }
 
-  filtrarModelo(modelo: String){
+  filtrarModelo(modelo: String, mobile: boolean){
     if(this.modelo.value != modelo)
       this.modelo.setValue(modelo)
     else
       this.modelo.setValue("");
 
-    this.aplicarFiltros();
+    if(!mobile)
+      this.aplicarFiltros();
   }
 
-  filtrarCor(cor: String){
+  filtrarCor(cor: String, mobile: boolean){
     if(this.cor.value != cor)
       this.cor.setValue(cor);
     else
       this.cor.setValue("");
 
-    this.aplicarFiltros();
+    if(!mobile)
+      this.aplicarFiltros();
   }
 
-  filtrarNumero(numero: Number){
+  filtrarNumero(numero: Number, mobile: boolean){
     if(this.numero.value != numero)
       this.numero.setValue(numero);
     else
       this.numero.setValue("");
 
-    this.aplicarFiltros();
+    if(!mobile)
+      this.aplicarFiltros();
   }
   
   limparFiltros(){
@@ -257,6 +267,15 @@ export class ProdutosComponent implements OnInit {
     this.aplicarFiltros();
   }
 
+  
+  abrirFiltrosMobile(){
+    this.mFiltro?.show();
+  }
+
+  filtrarMobile(){
+    this.aplicarFiltros();
+    this.mFiltro?.hide();
+  }
 
 
   selecionaProduto( produto: Produto ){
