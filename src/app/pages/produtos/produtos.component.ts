@@ -285,4 +285,17 @@ export class ProdutosComponent implements OnInit {
 
   }
 
+  mostrarTamanhos = false;
+  mostrarId = 0;
+
+  testover(id: number){
+    this.mostrarTamanhos = true;
+    this.mostrarId = id;
+    console.log("oi");
+  }
+
+  testout(){
+    this.mostrarTamanhos = false;
+  }
+
 }

@@ -171,7 +171,8 @@
                 <div class="row">
 
                     <!-- PRODUTOS DESKTOP -->
-                    <div class="d-none d-md-inline col-md-4 card-produtos mb-2" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)">
+                    <div class="d-none d-md-inline col-md-4 card-produtos mb-2" *ngFor="let produto of produtosExibidos;" (click)="selecionaProduto(produto)" 
+                    (mouseover)="testover(produto.id)" (mouseout)="testout()">
                         
                         <div class="row">
                             <div class="col-12 p-0 text-center" >
@@ -196,6 +197,12 @@
                                 <p class="preco-produto mb-0">R$ {{produto.precoPromocao}}</p>
                                 <p class="mb-0">à vista.</p>
                                 <b>PROMOÇÃO!</b>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div *ngIf="mostrarTamanhos && produto.id == mostrarId" style="font-size: 14px;">TAM: <b>{{produto.tamanhos}}</b></div>
                             </div>
                         </div>
 
