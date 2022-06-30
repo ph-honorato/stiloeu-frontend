@@ -11,13 +11,13 @@
 }
 
 .superior-icone {
-    color: #ff89f5;
+    color: white;
     font-size: 30px;
     cursor: pointer;
 }
 
 .superior-icone:hover {
-    color: white;
+    color: #ff89f5;
     transition-timing-function: ease-in-out;
     transition-duration: 0.3s;
 }
